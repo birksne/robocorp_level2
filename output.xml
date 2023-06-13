@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.9.13 on win32)" generated="20230110 14:48:29.684" rpa="true" schemaversion="3">
+<suite id="s1" name="Tasks" source="c:\Users\sneltbir\OneDrive - Tietoevry\Documents\Tietoevry\RPA\Robocorp\level 2\tasks.robot">
+<test id="s1-t1" name="Minimal task" line="13">
+<kw name="Access webpage">
+<kw name="Open Available Browser" library="RPA.Browser.Selenium">
+<arg>https://robotsparebinindustries.com/#/robot-order</arg>
+<doc>Attempts to open a browser on the user's device from a set of
+supported browsers. Automatically downloads a corresponding webdriver
+if none is already installed.</doc>
+<msg timestamp="20230110 14:48:31.922" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20230110 14:48:31.930" level="INFO">====== WebDriver manager ======</msg>
+<msg timestamp="20230110 14:48:34.154" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20230110 14:48:35.361" level="INFO">Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox</msg>
+<msg timestamp="20230110 14:48:35.361" level="INFO" html="true">&lt;p&gt;Attempted combinations:&lt;/p&gt;&lt;div class="doc"&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Browser&lt;/th&gt;&lt;th&gt;Download&lt;/th&gt;&lt;th&gt;Error&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;False&lt;/td&gt;&lt;td&gt;Message: 'chromedriver' executable needs to be in PATH. Please see https://chromedriver.chromium.org/home
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;True&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg timestamp="20230110 14:48:35.361" level="INFO">Opening url 'https://robotsparebinindustries.com/#/robot-order'</msg>
+<status status="PASS" starttime="20230110 14:48:31.922" endtime="20230110 14:48:36.092"/>
+</kw>
+<kw name="Click Button" library="RPA.Browser.Selenium">
+<arg>OK</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230110 14:48:36.092" level="INFO">Clicking button 'OK'.</msg>
+<status status="PASS" starttime="20230110 14:48:36.092" endtime="20230110 14:48:36.149"/>
+</kw>
+<status status="PASS" starttime="20230110 14:48:31.922" endtime="20230110 14:48:36.149"/>
+</kw>
+<kw name="Folder management">
+<kw name="Does Directory Exist" library="RPA.FileSystem">
+<var>${receipts_exist?}</var>
+<arg>c:\\Users\\sneltbir\\OneDrive - Tietoevry\\Documents\\Tietoevry\\RPA\\Robocorp\\level 2${/}receipts</arg>
+<doc>Returns True if the given directory exists, False if not.</doc>
+<msg timestamp="20230110 14:48:36.153" level="INFO">${receipts_exist?} = True</msg>
+<status status="PASS" starttime="20230110 14:48:36.149" endtime="20230110 14:48:36.153"/>
+</kw>
+<kw name="Does Directory Exist" library="RPA.FileSystem">
+<var>${screenshots_exist?}</var>
+<arg>c:\\Users\\sneltbir\\OneDrive - Tietoevry\\Documents\\Tietoevry\\RPA\\Robocorp\\level 2${/}screenshots</arg>
+<doc>Returns True if the given directory exists, False if not.</doc>
+<msg timestamp="20230110 14:48:36.153" level="INFO">${screenshots_exist?} = True</msg>
+<status status="PASS" starttime="20230110 14:48:36.153" endtime="20230110 14:48:36.153"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${receipts_exist?}'=='True'</arg>
+<arg>Remove Directory</arg>
+<arg>c:\\Users\\sneltbir\\OneDrive - Tietoevry\\Documents\\Tietoevry\\RPA\\Robocorp\\level 2${/}receipts</arg>
+<arg>recursive=${True}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Remove Directory" library="RPA.FileSystem">
+<arg>c:\\Users\\sneltbir\\OneDrive - Tietoevry\\Documents\\Tietoevry\\RPA\\Robocorp\\level 2${/}receipts</arg>
+<arg>recursive=${True}</arg>
+<doc>Removes the given directory, and optionally everything it contains.</doc>
+<status status="PASS" starttime="20230110 14:48:36.157" endtime="20230110 14:48:36.161"/>
+</kw>
+<status status="PASS" starttime="20230110 14:48:36.157" endtime="20230110 14:48:36.161"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${screenshots_exist?}'=='True'</arg>
+<arg>Remove Directory</arg>
+<arg>c:\\Users\\sneltbir\\OneDrive - Tietoevry\\Documents\\Tietoevry\\RPA\\Robocorp\\level 2${/}screenshots</arg>
+<arg>recursive=${True}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Remove Directory" library="RPA.FileSystem">
+<arg>c:\\Users\\sneltbir\\OneDrive - Tietoevry\\Documents\\Tietoevry\\RPA\\Robocorp\\level 2${/}screenshots</arg>
+<arg>recursive=${True}</arg>
+<doc>Removes the given directory, and optionally everything it contains.</doc>
+<status status="PASS" starttime="20230110 14:48:36.161" endtime="20230110 14:48:36.166"/>
+</kw>
+<status status="PASS" starttime="20230110 14:48:36.161" endtime="20230110 14:48:36.166"/>
+</kw>
+<kw name="Create Directory" library="RPA.FileSystem">
+<arg>c:\\Users\\sneltbir\\OneDrive - Tietoevry\\Documents\\Tietoevry\\RPA\\Robocorp\\level 2${/}receipts</arg>
+<doc>Creates a directory and (optionally) non-existing parent directories.</doc>
+<status status="PASS" starttime="20230110 14:48:36.166" endtime="20230110 14:48:36.166"/>
+</kw>
+<kw name="Create Directory" library="RPA.FileSystem">
+<arg>c:\\Users\\sneltbir\\OneDrive - Tietoevry\\Documents\\Tietoevry\\RPA\\Robocorp\\level 2${/}screenshots</arg>
+<doc>Creates a directory and (optionally) non-existing parent directories.</doc>
+<status status="PASS" starttime="20230110 14:48:36.166" endtime="20230110 14:48:36.172"/>
+</kw>
+<status status="PASS" starttime="20230110 14:48:36.149" endtime="20230110 14:48:36.172"/>
+</kw>
+<kw name="Loop time">
+<kw name="Read table from CSV" library="RPA.Tables">
+<var>@{orders}</var>
+<arg>c:\\Users\\sneltbir\\OneDrive - Tietoevry\\Documents\\Tietoevry\\RPA\\Robocorp\\level 2${/}orders.csv</arg>
+<arg>header=TRUE</arg>
+<doc>Read a CSV file as a table.</doc>
+<msg timestamp="20230110 14:48:36.179" level="INFO">@{orders} = [ {'Order number': '1', 'Head': '1', 'Body': '2', 'Legs': '3', 'Address': 'Address 123'} | {'Order number': '2', 'Head': '4', 'Body': '1', 'Legs': '5', 'Address': 'Address 456'} ]</msg>
+<status status="PASS" starttime="20230110 14:48:36.175" endtime="20230110 14:48:36.179"/>
+</kw>
+<for flavor="IN">
+<var>${row}</var>
+<value>@{orders}</value>
+<iter>
+<var name="${row}">{'Order number': '1', 'Head': '1', 'Body': '2', 'Legs': '3', 'Address': 'Address 123'}</var>
+<kw name="Fill the form">
+<arg>${row}</arg>
+<kw name="Select From List By Value" library="RPA.Browser.Selenium">
+<arg>head</arg>
+<arg>${row}[Head]</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20230110 14:48:36.179" level="INFO">Selecting options from selection list 'head' by value 1.</msg>
+<status status="PASS" starttime="20230110 14:48:36.179" endtime="20230110 14:48:36.273"/>
+</kw>
+<kw name="Click Button" library="RPA.Browser.Selenium">
+<arg>id:id-body-${row}[Body]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230110 14:48:36.274" level="INFO">Clicking button 'id:id-body-2'.</msg>
+<status status="PASS" starttime="20230110 14:48:36.273" endtime="20230110 14:48:36.326"/>
+</kw>
+<kw name="Input Text" library="RPA.Browser.Selenium">
+<arg>//input[@placeholder="Enter the part number for the legs"]</arg>
+<arg>${row}[Legs]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230110 14:48:36.331" level="INFO">Typing text '3' into text field '//input[@placeholder="Enter the part number for the legs"]'.</msg>
+<status status="PASS" starttime="20230110 14:48:36.326" endtime="20230110 14:48:36.406"/>
+</kw>
+<kw name="Input Text" library="RPA.Browser.Selenium">
+<arg>//input[@placeholder="Shipping address"]</arg>
+<arg>${row}[Address]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230110 14:48:36.406" level="INFO">Typing text 'Address 123' into text field '//input[@placeholder="Shipping address"]'.</msg>
+<status status="PASS" starttime="20230110 14:48:36.406" endtime="20230110 14:48:36.490"/>
+</kw>
+<status status="PASS" starttime="20230110 14:48:36.179" endtime="20230110 14:48:36.490"/>
+</kw>
+<kw name="Get robot preview">
+<kw name="Click Button" library="RPA.Browser.Selenium">
+<arg>Preview</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230110 14:48:36.494" level="INFO">Clicking button 'Preview'.</msg>
+<status status="PASS" starttime="20230110 14:48:36.494" endtime="20230110 14:48:36.552"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>//div[@id="robot-preview-image"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230110 14:48:36.553" endtime="20230110 14:48:36.579"/>
+</kw>
+<status status="PASS" starttime="20230110 14:48:36.490" endtime="20230110 14:48:36.579"/>
+</kw>
+<kw name="Complete order">
+<kw name="Click Button" library="RPA.Browser.Selenium">
+<arg>order</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230110 14:48:36.580" level="INFO">Clicking button 'order'.</msg>
+<status status="PASS" starttime="20230110 14:48:36.580" endtime="20230110 14:48:36.631"/>
+</kw>
+<kw name="Is Element Visible" library="RPA.Browser.Selenium">
+<var>${checkIfComplete}</var>
+<arg>//div[@id="receipt"]</arg>
+<doc>Is element visible</doc>
+<msg timestamp="20230110 14:48:36.658" level="INFO">Element '//div[@id="receipt"]' is displayed.</msg>
+<msg timestamp="20230110 14:48:36.658" level="INFO">${checkIfComplete} = True</msg>
+<status status="PASS" starttime="20230110 14:48:36.631" endtime="20230110 14:48:36.658"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${checkIfComplete}'=='False'</arg>
+<arg>Complete order</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20230110 14:48:36.658" endtime="20230110 14:48:36.658"/>
+</kw>
+<status status="PASS" starttime="20230110 14:48:36.579" endtime="20230110 14:48:36.664"/>
+</kw>
+<kw name="Get receipt and screenshot and merge them">
+<arg>${row}</arg>
+<kw name="Get Element Attribute" library="RPA.Browser.Selenium">
+<var>${html_receipt}</var>
+<arg>//div[@id="receipt"]</arg>
+<arg>outerHTML</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230110 14:48:36.680" level="INFO">${html_receipt} = &lt;div id="receipt" class="alert alert-success" role="alert"&gt;&lt;h3&gt;Receipt&lt;/h3&gt;&lt;div&gt;2023-01-10T13:48:36.626Z&lt;/div&gt;&lt;p class="badge badge-success"&gt;RSB-ROBO-ORDER-9VE0Z5HFT&lt;/p&gt;&lt;p&gt;Address 123&lt;/p&gt;&lt;div id="part...</msg>
+<status status="PASS" starttime="20230110 14:48:36.664" endtime="20230110 14:48:36.680"/>
+</kw>
+<kw name="Html To Pdf" library="RPA.PDF">
+<arg>${html_receipt}</arg>
+<arg>c:\\Users\\sneltbir\\OneDrive - Tietoevry\\Documents\\Tietoevry\\RPA\\Robocorp\\level 2${/}receipts/receipt_order_${row}[Order number].pdf</arg>
+<doc>Generate a PDF file from HTML content.</doc>
+<msg timestamp="20230110 14:48:36.680" level="INFO">Writing output to file C:\Users\sneltbir\OneDrive - Tietoevry\Documents\Tietoevry\RPA\Robocorp\level 2\receipts\receipt_order_1.pdf</msg>
+<msg timestamp="20230110 14:48:36.843" level="INFO">maxp pruned</msg>
+<msg timestamp="20230110 14:48:36.843" level="INFO">cmap pruned</msg>
+<msg timestamp="20230110 14:48:36.851" level="INFO">post pruned</msg>
+<msg timestamp="20230110 14:48:36.855" level="INFO">GDEF dropped</msg>
+<msg timestamp="20230110 14:48:36.855" level="INFO">GPOS dropped</msg>
+<msg timestamp="20230110 14:48:36.855" level="INFO">GSUB dropped</msg>
+<msg timestamp="20230110 14:48:36.859" level="INFO">name pruned</msg>
+<msg timestamp="20230110 14:48:36.859" level="INFO">glyf pruned</msg>
+<msg timestamp="20230110 14:48:36.859" level="INFO">Added gid0 to subset</msg>
+<msg timestamp="20230110 14:48:36.859" level="INFO">Added first four glyphs to subset</msg>
+<msg timestamp="20230110 14:48:36.859" level="INFO">Closing glyph list over 'glyf': 57 glyphs before</msg>
+<msg timestamp="20230110 14:48:36.859" level="INFO">Glyph names: ['.notdef', '.null', 'uni0020', 'uni0021', 'uni002D', 'uni002E', 'uni0030', 'uni0031', 'uni0032', 'uni0033', 'uni0034', 'uni0035', 'uni0036', 'uni0037', 'uni0038', 'uni0039', 'uni003A', 'uni0041', 'uni0042', 'uni0044', 'uni0045', 'uni0046', 'uni0048', 'uni004C', 'uni004F', 'uni0052', 'uni0053', 'uni0054', 'uni0056', 'uni0057', 'uni0059', 'uni005A', 'uni0061', 'uni0062', 'uni0063', 'uni0064', 'uni0065', 'uni0066', 'uni0067', 'uni0068', 'uni0069', 'uni006B', 'uni006C', 'uni006D', 'uni006E', 'uni006F', 'uni0070', 'uni0072', 'uni0073', 'uni0074', 'uni0075', 'uni0076', 'uni0077', 'uni0079', 'uni007B', 'uni007D', 'uni00C4']</msg>
+<msg timestamp="20230110 14:48:36.859" level="INFO">Glyph IDs:   [0, 1, 2, 3, 65, 84, 95, 137, 161, 280, 320, 382, 395, 409, 453, 456, 469, 493, 504, 575, 582, 594, 612, 645, 650, 660, 679, 715, 723, 752, 759, 775, 827, 837, 867, 884, 899, 932, 936, 950, 1294, 1295, 1296, 1298, 1299, 1300, 1302, 1303, 1304, 1305, 1329, 1345, 1346, 1361, 1404, 1407, 1681]</msg>
+<msg timestamp="20230110 14:48:36.867" level="INFO">Closed glyph list over 'glyf': 57 glyphs after</msg>
+<msg timestamp="20230110 14:48:36.867" level="INFO">Glyph names: ['.notdef', '.null', 'uni0020', 'uni0021', 'uni002D', 'uni002E', 'uni0030', 'uni0031', 'uni0032', 'uni0033', 'uni0034', 'uni0035', 'uni0036', 'uni0037', 'uni0038', 'uni0039', 'uni003A', 'uni0041', 'uni0042', 'uni0044', 'uni0045', 'uni0046', 'uni0048', 'uni004C', 'uni004F', 'uni0052', 'uni0053', 'uni0054', 'uni0056', 'uni0057', 'uni0059', 'uni005A', 'uni0061', 'uni0062', 'uni0063', 'uni0064', 'uni0065', 'uni0066', 'uni0067', 'uni0068', 'uni0069', 'uni006B', 'uni006C', 'uni006D', 'uni006E', 'uni006F', 'uni0070', 'uni0072', 'uni0073', 'uni0074', 'uni0075', 'uni0076', 'uni0077', 'uni0079', 'uni007B', 'uni007D', 'uni00C4']</msg>
+<msg timestamp="20230110 14:48:36.867" level="INFO">Glyph IDs:   [0, 1, 2, 3, 65, 84, 95, 137, 161, 280, 320, 382, 395, 409, 453, 456, 469, 493, 504, 575, 582, 594, 612, 645, 650, 660, 679, 715, 723, 752, 759, 775, 827, 837, 867, 884, 899, 932, 936, 950, 1294, 1295, 1296, 1298, 1299, 1300, 1302, 1303, 1304, 1305, 1329, 1345, 1346, 1361, 1404, 1407, 1681]</msg>
+<msg timestamp="20230110 14:48:36.867" level="INFO">Retaining 57 glyphs</msg>
+<msg timestamp="20230110 14:48:36.867" level="INFO">head subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.867" level="INFO">hhea subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.867" level="INFO">maxp subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.867" level="INFO">OS/2 subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.867" level="INFO">hmtx subsetted</msg>
+<msg timestamp="20230110 14:48:36.867" level="INFO">cmap subsetted</msg>
+<msg timestamp="20230110 14:48:36.867" level="INFO">prep subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.867" level="INFO">loca subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.867" level="INFO">post subsetted</msg>
+<msg timestamp="20230110 14:48:36.867" level="INFO">gasp subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.867" level="INFO">STAT subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.867" level="INFO">name subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.867" level="INFO">glyf subsetted</msg>
+<msg timestamp="20230110 14:48:36.867" level="INFO">head pruned</msg>
+<msg timestamp="20230110 14:48:36.867" level="INFO">OS/2 Unicode ranges pruned: [0]</msg>
+<msg timestamp="20230110 14:48:36.875" level="INFO">glyf pruned</msg>
+<msg timestamp="20230110 14:48:36.911" level="INFO">maxp pruned</msg>
+<msg timestamp="20230110 14:48:36.911" level="INFO">cmap pruned</msg>
+<msg timestamp="20230110 14:48:36.916" level="INFO">post pruned</msg>
+<msg timestamp="20230110 14:48:36.916" level="INFO">GDEF dropped</msg>
+<msg timestamp="20230110 14:48:36.916" level="INFO">GPOS dropped</msg>
+<msg timestamp="20230110 14:48:36.916" level="INFO">GSUB dropped</msg>
+<msg timestamp="20230110 14:48:36.916" level="INFO">name pruned</msg>
+<msg timestamp="20230110 14:48:36.916" level="INFO">glyf pruned</msg>
+<msg timestamp="20230110 14:48:36.916" level="INFO">Added gid0 to subset</msg>
+<msg timestamp="20230110 14:48:36.916" level="INFO">Added first four glyphs to subset</msg>
+<msg timestamp="20230110 14:48:36.916" level="INFO">Closing glyph list over 'glyf': 19 glyphs before</msg>
+<msg timestamp="20230110 14:48:36.916" level="INFO">Glyph names: ['.notdef', '.null', 'uni0020', 'uni0030', 'uni0031', 'uni0032', 'uni0033', 'uni0034', 'uni0035', 'uni0036', 'uni0037', 'uni0038', 'uni0039', 'uni0041', 'uni0062', 'uni006E', 'uni007B', 'uni007D', 'uni00C4']</msg>
+<msg timestamp="20230110 14:48:36.916" level="INFO">Glyph IDs:   [0, 1, 2, 3, 575, 759, 1294, 1295, 1296, 1298, 1299, 1300, 1302, 1303, 1304, 1305, 1345, 1346, 1681]</msg>
+<msg timestamp="20230110 14:48:36.916" level="INFO">Closed glyph list over 'glyf': 19 glyphs after</msg>
+<msg timestamp="20230110 14:48:36.916" level="INFO">Glyph names: ['.notdef', '.null', 'uni0020', 'uni0030', 'uni0031', 'uni0032', 'uni0033', 'uni0034', 'uni0035', 'uni0036', 'uni0037', 'uni0038', 'uni0039', 'uni0041', 'uni0062', 'uni006E', 'uni007B', 'uni007D', 'uni00C4']</msg>
+<msg timestamp="20230110 14:48:36.916" level="INFO">Glyph IDs:   [0, 1, 2, 3, 575, 759, 1294, 1295, 1296, 1298, 1299, 1300, 1302, 1303, 1304, 1305, 1345, 1346, 1681]</msg>
+<msg timestamp="20230110 14:48:36.916" level="INFO">Retaining 19 glyphs</msg>
+<msg timestamp="20230110 14:48:36.916" level="INFO">head subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.916" level="INFO">hhea subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.916" level="INFO">maxp subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.916" level="INFO">OS/2 subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.924" level="INFO">hmtx subsetted</msg>
+<msg timestamp="20230110 14:48:36.924" level="INFO">cmap subsetted</msg>
+<msg timestamp="20230110 14:48:36.924" level="INFO">prep subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.924" level="INFO">loca subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.924" level="INFO">post subsetted</msg>
+<msg timestamp="20230110 14:48:36.924" level="INFO">gasp subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.924" level="INFO">STAT subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.924" level="INFO">name subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.924" level="INFO">glyf subsetted</msg>
+<msg timestamp="20230110 14:48:36.924" level="INFO">head pruned</msg>
+<msg timestamp="20230110 14:48:36.924" level="INFO">OS/2 Unicode ranges pruned: [0]</msg>
+<msg timestamp="20230110 14:48:36.933" level="INFO">glyf pruned</msg>
+<msg timestamp="20230110 14:48:36.949" level="INFO">maxp pruned</msg>
+<msg timestamp="20230110 14:48:36.949" level="INFO">cmap pruned</msg>
+<msg timestamp="20230110 14:48:36.949" level="INFO">post pruned</msg>
+<msg timestamp="20230110 14:48:36.949" level="INFO">GDEF dropped</msg>
+<msg timestamp="20230110 14:48:36.949" level="INFO">GPOS dropped</msg>
+<msg timestamp="20230110 14:48:36.949" level="INFO">GSUB dropped</msg>
+<msg timestamp="20230110 14:48:36.949" level="INFO">name pruned</msg>
+<msg timestamp="20230110 14:48:36.949" level="INFO">glyf pruned</msg>
+<msg timestamp="20230110 14:48:36.949" level="INFO">Added gid0 to subset</msg>
+<msg timestamp="20230110 14:48:36.949" level="INFO">Added first four glyphs to subset</msg>
+<msg timestamp="20230110 14:48:36.957" level="INFO">Closing glyph list over 'glyf': 18 glyphs before</msg>
+<msg timestamp="20230110 14:48:36.959" level="INFO">Glyph names: ['.notdef', '.null', 'uni0020', 'uni0030', 'uni0031', 'uni0032', 'uni0033', 'uni0034', 'uni0035', 'uni0036', 'uni0037', 'uni0038', 'uni0039', 'uni0062', 'uni006E', 'uni007B', 'uni007D', 'uni00A0']</msg>
+<msg timestamp="20230110 14:48:36.959" level="INFO">Glyph IDs:   [0, 1, 2, 3, 544, 727, 1256, 1257, 1258, 1260, 1261, 1262, 1264, 1265, 1266, 1267, 1307, 1308]</msg>
+<msg timestamp="20230110 14:48:36.960" level="INFO">Closed glyph list over 'glyf': 18 glyphs after</msg>
+<msg timestamp="20230110 14:48:36.960" level="INFO">Glyph names: ['.notdef', '.null', 'uni0020', 'uni0030', 'uni0031', 'uni0032', 'uni0033', 'uni0034', 'uni0035', 'uni0036', 'uni0037', 'uni0038', 'uni0039', 'uni0062', 'uni006E', 'uni007B', 'uni007D', 'uni00A0']</msg>
+<msg timestamp="20230110 14:48:36.960" level="INFO">Glyph IDs:   [0, 1, 2, 3, 544, 727, 1256, 1257, 1258, 1260, 1261, 1262, 1264, 1265, 1266, 1267, 1307, 1308]</msg>
+<msg timestamp="20230110 14:48:36.960" level="INFO">Retaining 18 glyphs</msg>
+<msg timestamp="20230110 14:48:36.960" level="INFO">head subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.960" level="INFO">hhea subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.960" level="INFO">maxp subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.960" level="INFO">OS/2 subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.960" level="INFO">hmtx subsetted</msg>
+<msg timestamp="20230110 14:48:36.960" level="INFO">cmap subsetted</msg>
+<msg timestamp="20230110 14:48:36.960" level="INFO">loca subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.966" level="INFO">post subsetted</msg>
+<msg timestamp="20230110 14:48:36.966" level="INFO">name subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.966" level="INFO">glyf subsetted</msg>
+<msg timestamp="20230110 14:48:36.966" level="INFO">head pruned</msg>
+<msg timestamp="20230110 14:48:36.966" level="INFO">OS/2 Unicode ranges pruned: [0]</msg>
+<msg timestamp="20230110 14:48:36.966" level="INFO">glyf pruned</msg>
+<msg timestamp="20230110 14:48:36.982" level="INFO">maxp pruned</msg>
+<msg timestamp="20230110 14:48:36.982" level="INFO">cmap pruned</msg>
+<msg timestamp="20230110 14:48:36.982" level="INFO">post pruned</msg>
+<msg timestamp="20230110 14:48:36.982" level="INFO">GDEF dropped</msg>
+<msg timestamp="20230110 14:48:36.982" level="INFO">GPOS dropped</msg>
+<msg timestamp="20230110 14:48:36.982" level="INFO">GSUB dropped</msg>
+<msg timestamp="20230110 14:48:36.982" level="INFO">name pruned</msg>
+<msg timestamp="20230110 14:48:36.982" level="INFO">glyf pruned</msg>
+<msg timestamp="20230110 14:48:36.990" level="INFO">Added gid0 to subset</msg>
+<msg timestamp="20230110 14:48:36.990" level="INFO">Added first four glyphs to subset</msg>
+<msg timestamp="20230110 14:48:36.990" level="INFO">Closing glyph list over 'glyf': 18 glyphs before</msg>
+<msg timestamp="20230110 14:48:36.990" level="INFO">Glyph names: ['.notdef', '.null', 'uni0020', 'uni0030', 'uni0031', 'uni0032', 'uni0033', 'uni0034', 'uni0035', 'uni0036', 'uni0037', 'uni0038', 'uni0039', 'uni0062', 'uni006E', 'uni007B', 'uni007D', 'uni00A0']</msg>
+<msg timestamp="20230110 14:48:36.990" level="INFO">Glyph IDs:   [0, 1, 2, 3, 544, 727, 1256, 1257, 1258, 1260, 1261, 1262, 1264, 1265, 1266, 1267, 1307, 1308]</msg>
+<msg timestamp="20230110 14:48:36.990" level="INFO">Closed glyph list over 'glyf': 18 glyphs after</msg>
+<msg timestamp="20230110 14:48:36.990" level="INFO">Glyph names: ['.notdef', '.null', 'uni0020', 'uni0030', 'uni0031', 'uni0032', 'uni0033', 'uni0034', 'uni0035', 'uni0036', 'uni0037', 'uni0038', 'uni0039', 'uni0062', 'uni006E', 'uni007B', 'uni007D', 'uni00A0']</msg>
+<msg timestamp="20230110 14:48:36.990" level="INFO">Glyph IDs:   [0, 1, 2, 3, 544, 727, 1256, 1257, 1258, 1260, 1261, 1262, 1264, 1265, 1266, 1267, 1307, 1308]</msg>
+<msg timestamp="20230110 14:48:36.990" level="INFO">Retaining 18 glyphs</msg>
+<msg timestamp="20230110 14:48:36.990" level="INFO">head subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.990" level="INFO">hhea subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.990" level="INFO">maxp subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.990" level="INFO">OS/2 subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.990" level="INFO">hmtx subsetted</msg>
+<msg timestamp="20230110 14:48:36.990" level="INFO">cmap subsetted</msg>
+<msg timestamp="20230110 14:48:36.990" level="INFO">loca subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.990" level="INFO">post subsetted</msg>
+<msg timestamp="20230110 14:48:36.990" level="INFO">name subsetting not needed</msg>
+<msg timestamp="20230110 14:48:36.990" level="INFO">glyf subsetted</msg>
+<msg timestamp="20230110 14:48:36.990" level="INFO">head pruned</msg>
+<msg timestamp="20230110 14:48:36.990" level="INFO">OS/2 Unicode ranges pruned: [0]</msg>
+<msg timestamp="20230110 14:48:36.998" level="INFO">glyf pruned</msg>
+<status status="PASS" starttime="20230110 14:48:36.680" endtime="20230110 14:48:37.015"/>
+</kw>
+<kw name="Capture Element Screenshot" library="RPA.Browser.Selenium">
+<arg>//div[@id="robot-preview-image"]</arg>
+<arg>c:\\Users\\sneltbir\\OneDrive - Tietoevry\\Documents\\Tietoevry\\RPA\\Robocorp\\level 2${/}screenshots/robot_preview_${row}[Order number].png</arg>
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<msg timestamp="20230110 14:48:37.199" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/robot_preview_1.png"&gt;&lt;img src="screenshots/robot_preview_1.png" width="400px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230110 14:48:37.015" endtime="20230110 14:48:37.199"/>
+</kw>
+<kw name="Add Watermark Image To Pdf" library="RPA.PDF">
+<arg>c:\\Users\\sneltbir\\OneDrive - Tietoevry\\Documents\\Tietoevry\\RPA\\Robocorp\\level 2${/}screenshots/robot_preview_${row}[Order number].png</arg>
+<arg>c:\\Users\\sneltbir\\OneDrive - Tietoevry\\Documents\\Tietoevry\\RPA\\Robocorp\\level 2${/}receipts/receipt_order_${row}[Order number].pdf</arg>
+<arg>c:\\Users\\sneltbir\\OneDrive - Tietoevry\\Documents\\Tietoevry\\RPA\\Robocorp\\level 2${/}receipts/receipt_order_${row}[Order number].pdf</arg>
+<doc>Add an image into an existing or new PDF.</doc>
+<msg timestamp="20230110 14:48:37.365" level="INFO">UserWarning: mergePage is deprecated and will be removed in PyPDF2 2.0.0. Use merge_page instead. [_page.py:442]</msg>
+<status status="PASS" starttime="20230110 14:48:37.199" endtime="20230110 14:48:37.369"/>
+</kw>
+<status status="PASS" starttime="20230110 14:48:36.664" endtime="20230110 14:48:37.369"/>
+</kw>
+<kw name="Prepare for next order">
+<kw name="Click Button" library="RPA.Browser.Selenium">
+<arg>id:order-another</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230110 14:48:37.371" level="INFO">Clicking button 'id:order-another'.</msg>
+<status status="PASS" starttime="20230110 14:48:37.369" endtime="20230110 14:48:37.526"/>
+</kw>
+<kw name="Click Button" library="RPA.Browser.Selenium">
+<arg>OK</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230110 14:48:37.527" level="INFO">Clicking button 'OK'.</msg>
+<status status="PASS" starttime="20230110 14:48:37.526" endtime="20230110 14:48:37.585"/>
+</kw>
+<status status="PASS" starttime="20230110 14:48:37.369" endtime="20230110 14:48:37.585"/>
+</kw>
+<status status="PASS" starttime="20230110 14:48:36.179" endtime="20230110 14:48:37.585"/>
+</iter>
+<iter>
+<var name="${row}">{'Order number': '2', 'Head': '4', 'Body': '1', 'Legs': '5', 'Address': 'Address 456'}</var>
+<kw name="Fill the form">
+<arg>${row}</arg>
+<kw name="Select From List By Value" library="RPA.Browser.Selenium">
+<arg>head</arg>
+<arg>${row}[Head]</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20230110 14:48:37.585" level="INFO">Selecting options from selection list 'head' by value 4.</msg>
+<status status="PASS" starttime="20230110 14:48:37.585" endtime="20230110 14:48:37.680"/>
+</kw>
+<kw name="Click Button" library="RPA.Browser.Selenium">
+<arg>id:id-body-${row}[Body]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230110 14:48:37.680" level="INFO">Clicking button 'id:id-body-1'.</msg>
+<status status="PASS" starttime="20230110 14:48:37.680" endtime="20230110 14:48:37.730"/>
+</kw>
+<kw name="Input Text" library="RPA.Browser.Selenium">
+<arg>//input[@placeholder="Enter the part number for the legs"]</arg>
+<arg>${row}[Legs]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230110 14:48:37.730" level="INFO">Typing text '5' into text field '//input[@placeholder="Enter the part number for the legs"]'.</msg>
+<status status="PASS" starttime="20230110 14:48:37.730" endtime="20230110 14:48:37.822"/>
+</kw>
+<kw name="Input Text" library="RPA.Browser.Selenium">
+<arg>//input[@placeholder="Shipping address"]</arg>
+<arg>${row}[Address]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230110 14:48:37.824" level="INFO">Typing text 'Address 456' into text field '//input[@placeholder="Shipping address"]'.</msg>
+<status status="PASS" starttime="20230110 14:48:37.822" endtime="20230110 14:48:37.915"/>
+</kw>
+<status status="PASS" starttime="20230110 14:48:37.585" endtime="20230110 14:48:37.915"/>
+</kw>
+<kw name="Get robot preview">
+<kw name="Click Button" library="RPA.Browser.Selenium">
+<arg>Preview</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230110 14:48:37.917" level="INFO">Clicking button 'Preview'.</msg>
+<status status="PASS" starttime="20230110 14:48:37.917" endtime="20230110 14:48:37.985"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>//div[@id="robot-preview-image"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230110 14:48:37.986" endtime="20230110 14:48:38.012"/>
+</kw>
+<status status="PASS" starttime="20230110 14:48:37.917" endtime="20230110 14:48:38.013"/>
+</kw>
+<kw name="Complete order">
+<kw name="Click Button" library="RPA.Browser.Selenium">
+<arg>order</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230110 14:48:38.014" level="INFO">Clicking button 'order'.</msg>
+<status status="PASS" starttime="20230110 14:48:38.013" endtime="20230110 14:48:38.073"/>
+</kw>
+<kw name="Is Element Visible" library="RPA.Browser.Selenium">
+<var>${checkIfComplete}</var>
+<arg>//div[@id="receipt"]</arg>
+<doc>Is element visible</doc>
+<msg timestamp="20230110 14:48:38.093" level="INFO">Element '//div[@id="receipt"]' is displayed.</msg>
+<msg timestamp="20230110 14:48:38.093" level="INFO">${checkIfComplete} = True</msg>
+<status status="PASS" starttime="20230110 14:48:38.073" endtime="20230110 14:48:38.093"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${checkIfComplete}'=='False'</arg>
+<arg>Complete order</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20230110 14:48:38.093" endtime="20230110 14:48:38.093"/>
+</kw>
+<status status="PASS" starttime="20230110 14:48:38.013" endtime="20230110 14:48:38.093"/>
+</kw>
+<kw name="Get receipt and screenshot and merge them">
+<arg>${row}</arg>
+<kw name="Get Element Attribute" library="RPA.Browser.Selenium">
+<var>${html_receipt}</var>
+<arg>//div[@id="receipt"]</arg>
+<arg>outerHTML</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230110 14:48:38.114" level="INFO">${html_receipt} = &lt;div id="receipt" class="alert alert-success" role="alert"&gt;&lt;h3&gt;Receipt&lt;/h3&gt;&lt;div&gt;2023-01-10T13:48:38.066Z&lt;/div&gt;&lt;p class="badge badge-success"&gt;RSB-ROBO-ORDER-PIXAKXC917&lt;/p&gt;&lt;p&gt;Address 456&lt;/p&gt;&lt;div id="par...</msg>
+<status status="PASS" starttime="20230110 14:48:38.093" endtime="20230110 14:48:38.114"/>
+</kw>
+<kw name="Html To Pdf" library="RPA.PDF">
+<arg>${html_receipt}</arg>
+<arg>c:\\Users\\sneltbir\\OneDrive - Tietoevry\\Documents\\Tietoevry\\RPA\\Robocorp\\level 2${/}receipts/receipt_order_${row}[Order number].pdf</arg>
+<doc>Generate a PDF file from HTML content.</doc>
+<msg timestamp="20230110 14:48:38.114" level="INFO">Writing output to file C:\Users\sneltbir\OneDrive - Tietoevry\Documents\Tietoevry\RPA\Robocorp\level 2\receipts\receipt_order_2.pdf</msg>
+<msg timestamp="20230110 14:48:38.236" level="INFO">maxp pruned</msg>
+<msg timestamp="20230110 14:48:38.236" level="INFO">cmap pruned</msg>
+<msg timestamp="20230110 14:48:38.236" level="INFO">post pruned</msg>
+<msg timestamp="20230110 14:48:38.236" level="INFO">GDEF dropped</msg>
+<msg timestamp="20230110 14:48:38.236" level="INFO">GPOS dropped</msg>
+<msg timestamp="20230110 14:48:38.236" level="INFO">GSUB dropped</msg>
+<msg timestamp="20230110 14:48:38.236" level="INFO">name pruned</msg>
+<msg timestamp="20230110 14:48:38.244" level="INFO">glyf pruned</msg>
+<msg timestamp="20230110 14:48:38.244" level="INFO">Added gid0 to subset</msg>
+<msg timestamp="20230110 14:48:38.244" level="INFO">Added first four glyphs to subset</msg>
+<msg timestamp="20230110 14:48:38.244" level="INFO">Closing glyph list over 'glyf': 60 glyphs before</msg>
+<msg timestamp="20230110 14:48:38.244" level="INFO">Glyph names: ['.notdef', '.null', 'uni0020', 'uni0021', 'uni002D', 'uni002E', 'uni0030', 'uni0031', 'uni0032', 'uni0033', 'uni0034', 'uni0035', 'uni0036', 'uni0037', 'uni0038', 'uni0039', 'uni003A', 'uni0041', 'uni0042', 'uni0043', 'uni0044', 'uni0045', 'uni0048', 'uni0049', 'uni004B', 'uni004C', 'uni004F', 'uni0050', 'uni0052', 'uni0053', 'uni0054', 'uni0057', 'uni0058', 'uni0059', 'uni005A', 'uni0061', 'uni0062', 'uni0063', 'uni0064', 'uni0065', 'uni0066', 'uni0067', 'uni0068', 'uni0069', 'uni006B', 'uni006C', 'uni006D', 'uni006E', 'uni006F', 'uni0070', 'uni0072', 'uni0073', 'uni0074', 'uni0075', 'uni0076', 'uni0077', 'uni0079', 'uni007B', 'uni007D', 'uni00C4']</msg>
+<msg timestamp="20230110 14:48:38.244" level="INFO">Glyph IDs:   [0, 1, 2, 3, 65, 73, 84, 95, 161, 197, 270, 280, 320, 374, 382, 395, 409, 456, 463, 469, 493, 504, 575, 582, 594, 612, 645, 650, 660, 679, 715, 723, 752, 759, 775, 827, 837, 867, 884, 899, 932, 936, 950, 1294, 1295, 1296, 1298, 1299, 1300, 1302, 1303, 1304, 1305, 1329, 1345, 1346, 1361, 1404, 1407, 1681]</msg>
+<msg timestamp="20230110 14:48:38.244" level="INFO">Closed glyph list over 'glyf': 60 glyphs after</msg>
+<msg timestamp="20230110 14:48:38.244" level="INFO">Glyph names: ['.notdef', '.null', 'uni0020', 'uni0021', 'uni002D', 'uni002E', 'uni0030', 'uni0031', 'uni0032', 'uni0033', 'uni0034', 'uni0035', 'uni0036', 'uni0037', 'uni0038', 'uni0039', 'uni003A', 'uni0041', 'uni0042', 'uni0043', 'uni0044', 'uni0045', 'uni0048', 'uni0049', 'uni004B', 'uni004C', 'uni004F', 'uni0050', 'uni0052', 'uni0053', 'uni0054', 'uni0057', 'uni0058', 'uni0059', 'uni005A', 'uni0061', 'uni0062', 'uni0063', 'uni0064', 'uni0065', 'uni0066', 'uni0067', 'uni0068', 'uni0069', 'uni006B', 'uni006C', 'uni006D', 'uni006E', 'uni006F', 'uni0070', 'uni0072', 'uni0073', 'uni0074', 'uni0075', 'uni0076', 'uni0077', 'uni0079', 'uni007B', 'uni007D', 'uni00C4']</msg>
+<msg timestamp="20230110 14:48:38.244" level="INFO">Glyph IDs:   [0, 1, 2, 3, 65, 73, 84, 95, 161, 197, 270, 280, 320, 374, 382, 395, 409, 456, 463, 469, 493, 504, 575, 582, 594, 612, 645, 650, 660, 679, 715, 723, 752, 759, 775, 827, 837, 867, 884, 899, 932, 936, 950, 1294, 1295, 1296, 1298, 1299, 1300, 1302, 1303, 1304, 1305, 1329, 1345, 1346, 1361, 1404, 1407, 1681]</msg>
+<msg timestamp="20230110 14:48:38.244" level="INFO">Retaining 60 glyphs</msg>
+<msg timestamp="20230110 14:48:38.244" level="INFO">head subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.244" level="INFO">hhea subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.244" level="INFO">maxp subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.244" level="INFO">OS/2 subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.244" level="INFO">hmtx subsetted</msg>
+<msg timestamp="20230110 14:48:38.244" level="INFO">cmap subsetted</msg>
+<msg timestamp="20230110 14:48:38.244" level="INFO">prep subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.244" level="INFO">loca subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.252" level="INFO">post subsetted</msg>
+<msg timestamp="20230110 14:48:38.252" level="INFO">gasp subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.252" level="INFO">STAT subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.252" level="INFO">name subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.252" level="INFO">glyf subsetted</msg>
+<msg timestamp="20230110 14:48:38.252" level="INFO">head pruned</msg>
+<msg timestamp="20230110 14:48:38.252" level="INFO">OS/2 Unicode ranges pruned: [0]</msg>
+<msg timestamp="20230110 14:48:38.252" level="INFO">glyf pruned</msg>
+<msg timestamp="20230110 14:48:38.277" level="INFO">maxp pruned</msg>
+<msg timestamp="20230110 14:48:38.277" level="INFO">cmap pruned</msg>
+<msg timestamp="20230110 14:48:38.277" level="INFO">post pruned</msg>
+<msg timestamp="20230110 14:48:38.277" level="INFO">GDEF dropped</msg>
+<msg timestamp="20230110 14:48:38.277" level="INFO">GPOS dropped</msg>
+<msg timestamp="20230110 14:48:38.277" level="INFO">GSUB dropped</msg>
+<msg timestamp="20230110 14:48:38.277" level="INFO">name pruned</msg>
+<msg timestamp="20230110 14:48:38.285" level="INFO">glyf pruned</msg>
+<msg timestamp="20230110 14:48:38.285" level="INFO">Added gid0 to subset</msg>
+<msg timestamp="20230110 14:48:38.285" level="INFO">Added first four glyphs to subset</msg>
+<msg timestamp="20230110 14:48:38.285" level="INFO">Closing glyph list over 'glyf': 19 glyphs before</msg>
+<msg timestamp="20230110 14:48:38.285" level="INFO">Glyph names: ['.notdef', '.null', 'uni0020', 'uni0030', 'uni0031', 'uni0032', 'uni0033', 'uni0034', 'uni0035', 'uni0036', 'uni0037', 'uni0038', 'uni0039', 'uni0041', 'uni0062', 'uni006E', 'uni007B', 'uni007D', 'uni00C4']</msg>
+<msg timestamp="20230110 14:48:38.285" level="INFO">Glyph IDs:   [0, 1, 2, 3, 575, 759, 1294, 1295, 1296, 1298, 1299, 1300, 1302, 1303, 1304, 1305, 1345, 1346, 1681]</msg>
+<msg timestamp="20230110 14:48:38.285" level="INFO">Closed glyph list over 'glyf': 19 glyphs after</msg>
+<msg timestamp="20230110 14:48:38.285" level="INFO">Glyph names: ['.notdef', '.null', 'uni0020', 'uni0030', 'uni0031', 'uni0032', 'uni0033', 'uni0034', 'uni0035', 'uni0036', 'uni0037', 'uni0038', 'uni0039', 'uni0041', 'uni0062', 'uni006E', 'uni007B', 'uni007D', 'uni00C4']</msg>
+<msg timestamp="20230110 14:48:38.285" level="INFO">Glyph IDs:   [0, 1, 2, 3, 575, 759, 1294, 1295, 1296, 1298, 1299, 1300, 1302, 1303, 1304, 1305, 1345, 1346, 1681]</msg>
+<msg timestamp="20230110 14:48:38.285" level="INFO">Retaining 19 glyphs</msg>
+<msg timestamp="20230110 14:48:38.285" level="INFO">head subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.285" level="INFO">hhea subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.285" level="INFO">maxp subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.285" level="INFO">OS/2 subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.285" level="INFO">hmtx subsetted</msg>
+<msg timestamp="20230110 14:48:38.293" level="INFO">cmap subsetted</msg>
+<msg timestamp="20230110 14:48:38.293" level="INFO">prep subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.293" level="INFO">loca subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.293" level="INFO">post subsetted</msg>
+<msg timestamp="20230110 14:48:38.293" level="INFO">gasp subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.293" level="INFO">STAT subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.293" level="INFO">name subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.293" level="INFO">glyf subsetted</msg>
+<msg timestamp="20230110 14:48:38.293" level="INFO">head pruned</msg>
+<msg timestamp="20230110 14:48:38.293" level="INFO">OS/2 Unicode ranges pruned: [0]</msg>
+<msg timestamp="20230110 14:48:38.293" level="INFO">glyf pruned</msg>
+<msg timestamp="20230110 14:48:38.310" level="INFO">maxp pruned</msg>
+<msg timestamp="20230110 14:48:38.310" level="INFO">cmap pruned</msg>
+<msg timestamp="20230110 14:48:38.313" level="INFO">post pruned</msg>
+<msg timestamp="20230110 14:48:38.313" level="INFO">GDEF dropped</msg>
+<msg timestamp="20230110 14:48:38.313" level="INFO">GPOS dropped</msg>
+<msg timestamp="20230110 14:48:38.313" level="INFO">GSUB dropped</msg>
+<msg timestamp="20230110 14:48:38.313" level="INFO">name pruned</msg>
+<msg timestamp="20230110 14:48:38.313" level="INFO">glyf pruned</msg>
+<msg timestamp="20230110 14:48:38.318" level="INFO">Added gid0 to subset</msg>
+<msg timestamp="20230110 14:48:38.318" level="INFO">Added first four glyphs to subset</msg>
+<msg timestamp="20230110 14:48:38.318" level="INFO">Closing glyph list over 'glyf': 18 glyphs before</msg>
+<msg timestamp="20230110 14:48:38.318" level="INFO">Glyph names: ['.notdef', '.null', 'uni0020', 'uni0030', 'uni0031', 'uni0032', 'uni0033', 'uni0034', 'uni0035', 'uni0036', 'uni0037', 'uni0038', 'uni0039', 'uni0062', 'uni006E', 'uni007B', 'uni007D', 'uni00A0']</msg>
+<msg timestamp="20230110 14:48:38.318" level="INFO">Glyph IDs:   [0, 1, 2, 3, 544, 727, 1256, 1257, 1258, 1260, 1261, 1262, 1264, 1265, 1266, 1267, 1307, 1308]</msg>
+<msg timestamp="20230110 14:48:38.318" level="INFO">Closed glyph list over 'glyf': 18 glyphs after</msg>
+<msg timestamp="20230110 14:48:38.318" level="INFO">Glyph names: ['.notdef', '.null', 'uni0020', 'uni0030', 'uni0031', 'uni0032', 'uni0033', 'uni0034', 'uni0035', 'uni0036', 'uni0037', 'uni0038', 'uni0039', 'uni0062', 'uni006E', 'uni007B', 'uni007D', 'uni00A0']</msg>
+<msg timestamp="20230110 14:48:38.318" level="INFO">Glyph IDs:   [0, 1, 2, 3, 544, 727, 1256, 1257, 1258, 1260, 1261, 1262, 1264, 1265, 1266, 1267, 1307, 1308]</msg>
+<msg timestamp="20230110 14:48:38.318" level="INFO">Retaining 18 glyphs</msg>
+<msg timestamp="20230110 14:48:38.318" level="INFO">head subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.318" level="INFO">hhea subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.318" level="INFO">maxp subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.318" level="INFO">OS/2 subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.318" level="INFO">hmtx subsetted</msg>
+<msg timestamp="20230110 14:48:38.318" level="INFO">cmap subsetted</msg>
+<msg timestamp="20230110 14:48:38.318" level="INFO">loca subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.318" level="INFO">post subsetted</msg>
+<msg timestamp="20230110 14:48:38.318" level="INFO">name subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.318" level="INFO">glyf subsetted</msg>
+<msg timestamp="20230110 14:48:38.318" level="INFO">head pruned</msg>
+<msg timestamp="20230110 14:48:38.326" level="INFO">OS/2 Unicode ranges pruned: [0]</msg>
+<msg timestamp="20230110 14:48:38.326" level="INFO">glyf pruned</msg>
+<msg timestamp="20230110 14:48:38.345" level="INFO">maxp pruned</msg>
+<msg timestamp="20230110 14:48:38.345" level="INFO">cmap pruned</msg>
+<msg timestamp="20230110 14:48:38.345" level="INFO">post pruned</msg>
+<msg timestamp="20230110 14:48:38.345" level="INFO">GDEF dropped</msg>
+<msg timestamp="20230110 14:48:38.345" level="INFO">GPOS dropped</msg>
+<msg timestamp="20230110 14:48:38.345" level="INFO">GSUB dropped</msg>
+<msg timestamp="20230110 14:48:38.346" level="INFO">name pruned</msg>
+<msg timestamp="20230110 14:48:38.348" level="INFO">glyf pruned</msg>
+<msg timestamp="20230110 14:48:38.350" level="INFO">Added gid0 to subset</msg>
+<msg timestamp="20230110 14:48:38.350" level="INFO">Added first four glyphs to subset</msg>
+<msg timestamp="20230110 14:48:38.350" level="INFO">Closing glyph list over 'glyf': 18 glyphs before</msg>
+<msg timestamp="20230110 14:48:38.351" level="INFO">Glyph names: ['.notdef', '.null', 'uni0020', 'uni0030', 'uni0031', 'uni0032', 'uni0033', 'uni0034', 'uni0035', 'uni0036', 'uni0037', 'uni0038', 'uni0039', 'uni0062', 'uni006E', 'uni007B', 'uni007D', 'uni00A0']</msg>
+<msg timestamp="20230110 14:48:38.351" level="INFO">Glyph IDs:   [0, 1, 2, 3, 544, 727, 1256, 1257, 1258, 1260, 1261, 1262, 1264, 1265, 1266, 1267, 1307, 1308]</msg>
+<msg timestamp="20230110 14:48:38.351" level="INFO">Closed glyph list over 'glyf': 18 glyphs after</msg>
+<msg timestamp="20230110 14:48:38.352" level="INFO">Glyph names: ['.notdef', '.null', 'uni0020', 'uni0030', 'uni0031', 'uni0032', 'uni0033', 'uni0034', 'uni0035', 'uni0036', 'uni0037', 'uni0038', 'uni0039', 'uni0062', 'uni006E', 'uni007B', 'uni007D', 'uni00A0']</msg>
+<msg timestamp="20230110 14:48:38.352" level="INFO">Glyph IDs:   [0, 1, 2, 3, 544, 727, 1256, 1257, 1258, 1260, 1261, 1262, 1264, 1265, 1266, 1267, 1307, 1308]</msg>
+<msg timestamp="20230110 14:48:38.352" level="INFO">Retaining 18 glyphs</msg>
+<msg timestamp="20230110 14:48:38.353" level="INFO">head subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.353" level="INFO">hhea subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.353" level="INFO">maxp subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.353" level="INFO">OS/2 subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.355" level="INFO">hmtx subsetted</msg>
+<msg timestamp="20230110 14:48:38.356" level="INFO">cmap subsetted</msg>
+<msg timestamp="20230110 14:48:38.356" level="INFO">loca subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.356" level="INFO">post subsetted</msg>
+<msg timestamp="20230110 14:48:38.357" level="INFO">name subsetting not needed</msg>
+<msg timestamp="20230110 14:48:38.359" level="INFO">glyf subsetted</msg>
+<msg timestamp="20230110 14:48:38.360" level="INFO">head pruned</msg>
+<msg timestamp="20230110 14:48:38.360" level="INFO">OS/2 Unicode ranges pruned: [0]</msg>
+<msg timestamp="20230110 14:48:38.361" level="INFO">glyf pruned</msg>
+<status status="PASS" starttime="20230110 14:48:38.114" endtime="20230110 14:48:38.379"/>
+</kw>
+<kw name="Capture Element Screenshot" library="RPA.Browser.Selenium">
+<arg>//div[@id="robot-preview-image"]</arg>
+<arg>c:\\Users\\sneltbir\\OneDrive - Tietoevry\\Documents\\Tietoevry\\RPA\\Robocorp\\level 2${/}screenshots/robot_preview_${row}[Order number].png</arg>
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<msg timestamp="20230110 14:48:38.498" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/robot_preview_2.png"&gt;&lt;img src="screenshots/robot_preview_2.png" width="400px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230110 14:48:38.379" endtime="20230110 14:48:38.501"/>
+</kw>
+<kw name="Add Watermark Image To Pdf" library="RPA.PDF">
+<arg>c:\\Users\\sneltbir\\OneDrive - Tietoevry\\Documents\\Tietoevry\\RPA\\Robocorp\\level 2${/}screenshots/robot_preview_${row}[Order number].png</arg>
+<arg>c:\\Users\\sneltbir\\OneDrive - Tietoevry\\Documents\\Tietoevry\\RPA\\Robocorp\\level 2${/}receipts/receipt_order_${row}[Order number].pdf</arg>
+<arg>c:\\Users\\sneltbir\\OneDrive - Tietoevry\\Documents\\Tietoevry\\RPA\\Robocorp\\level 2${/}receipts/receipt_order_${row}[Order number].pdf</arg>
+<doc>Add an image into an existing or new PDF.</doc>
+<status status="PASS" starttime="20230110 14:48:38.501" endtime="20230110 14:48:38.558"/>
+</kw>
+<status status="PASS" starttime="20230110 14:48:38.093" endtime="20230110 14:48:38.558"/>
+</kw>
+<kw name="Prepare for next order">
+<kw name="Click Button" library="RPA.Browser.Selenium">
+<arg>id:order-another</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230110 14:48:38.562" level="INFO">Clicking button 'id:order-another'.</msg>
+<status status="PASS" starttime="20230110 14:48:38.562" endtime="20230110 14:48:38.748"/>
+</kw>
+<kw name="Click Button" library="RPA.Browser.Selenium">
+<arg>OK</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230110 14:48:38.750" level="INFO">Clicking button 'OK'.</msg>
+<status status="PASS" starttime="20230110 14:48:38.749" endtime="20230110 14:48:38.798"/>
+</kw>
+<status status="PASS" starttime="20230110 14:48:38.562" endtime="20230110 14:48:38.798"/>
+</kw>
+<status status="PASS" starttime="20230110 14:48:37.585" endtime="20230110 14:48:38.798"/>
+</iter>
+<status status="PASS" starttime="20230110 14:48:36.179" endtime="20230110 14:48:38.798"/>
+</for>
+<status status="PASS" starttime="20230110 14:48:36.175" endtime="20230110 14:48:38.798"/>
+</kw>
+<kw name="Archive receipts with ZIP">
+<kw name="Archive Folder With Zip" library="RPA.Archive">
+<arg>c:\\Users\\sneltbir\\OneDrive - Tietoevry\\Documents\\Tietoevry\\RPA\\Robocorp\\level 2${/}receipts</arg>
+<arg>receipts.zip</arg>
+<doc>Create a zip archive of a folder</doc>
+<status status="PASS" starttime="20230110 14:48:38.798" endtime="20230110 14:48:38.814"/>
+</kw>
+<status status="PASS" starttime="20230110 14:48:38.798" endtime="20230110 14:48:38.814"/>
+</kw>
+<status status="PASS" starttime="20230110 14:48:31.922" endtime="20230110 14:48:38.814"/>
+</test>
+<doc>Template robot main suite.</doc>
+<status status="PASS" starttime="20230110 14:48:29.692" endtime="20230110 14:48:38.823"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Tasks">Tasks</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
